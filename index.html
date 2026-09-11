@@ -1,0 +1,619 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adhil Jawad | Personal Profile</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:Arial,sans-serif;
+            line-height:1.6;
+            color:#1f2937;
+            background:#f8fafc;
+        }
+
+        .container{
+            width:90%;
+            max-width:1100px;
+            margin:auto;
+        }
+
+        header{
+            background:#0f172a;
+            color:white;
+            position:sticky;
+            top:0;
+            z-index:10;
+        }
+
+        .nav-container{
+            min-height:70px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        header h1{
+            font-size:24px;
+        }
+
+        nav{
+            display:flex;
+            gap:25px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+        }
+
+        nav a:hover{
+            color:#38bdf8;
+        }
+
+        section{
+            padding:90px 0;
+        }
+
+        .hero{
+            min-height:600px;
+            display:flex;
+            align-items:center;
+            background:linear-gradient(135deg,#e0f2fe,#f8fafc);
+        }
+
+        .hero-content{
+            display:grid;
+            grid-template-columns:1.4fr 0.8fr;
+            gap:60px;
+            align-items:center;
+        }
+
+        .tag,
+        .section-label{
+            color:#0284c7;
+            font-size:13px;
+            font-weight:bold;
+            letter-spacing:2px;
+            margin-bottom:12px;
+        }
+
+        .hero h2{
+            font-size:52px;
+            line-height:1.1;
+            margin-bottom:20px;
+            color:#0f172a;
+        }
+
+        .hero h2 span{
+            color:#0284c7;
+        }
+
+        .hero-text > p:not(.tag){
+            max-width:650px;
+            font-size:18px;
+            color:#475569;
+            margin-bottom:30px;
+        }
+
+        .button{
+            display:inline-block;
+            background:#0284c7;
+            color:white;
+            padding:12px 24px;
+            border-radius:8px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .button:hover,
+        button:hover{
+            background:#0369a1;
+        }
+
+        .profile-card{
+            width:280px;
+            height:280px;
+            margin:auto;
+            border-radius:50%;
+            padding:8px;
+            background:#0284c7;
+        }
+
+        .profile-card img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            border-radius:50%;
+            background:#dbeafe;
+        }
+
+        section h2{
+            font-size:38px;
+            color:#0f172a;
+            margin-bottom:35px;
+        }
+
+        .skills-grid,
+        .projects-grid{
+            display:grid;
+            gap:20px;
+        }
+
+        .skills-grid{
+            grid-template-columns:repeat(4,1fr);
+        }
+
+        .skill,
+        .project-card{
+            background:white;
+            padding:28px;
+            border-radius:12px;
+            box-shadow:0 8px 25px rgba(15,23,42,0.07);
+        }
+
+        .skill{
+            border-top:4px solid #0284c7;
+        }
+
+        .skill h3,
+        .project-card h3{
+            color:#0f172a;
+            margin-bottom:10px;
+        }
+
+        .skill p,
+        .project-card p,
+        .contact-info > p:not(.section-label){
+            color:#64748b;
+        }
+
+        .projects-section{
+            background:#e2e8f0;
+        }
+
+        .projects-grid{
+            grid-template-columns:repeat(2,1fr);
+        }
+
+        .project-number{
+            font-size:14px;
+            color:#0284c7;
+            font-weight:bold;
+            margin-bottom:12px;
+        }
+
+        .project-card span{
+            display:inline-block;
+            margin-top:20px;
+            color:#0284c7;
+            font-size:14px;
+            font-weight:bold;
+        }
+
+        .contact-container{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:60px;
+            align-items:start;
+        }
+
+        .email{
+            margin-top:25px;
+        }
+
+        .email a{
+            color:#0284c7;
+        }
+
+        .contact-form{
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 8px 25px rgba(15,23,42,0.07);
+        }
+
+        .form-group{
+            margin-bottom:18px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:7px;
+            font-weight:bold;
+        }
+
+        input,
+        textarea{
+            width:100%;
+            padding:12px;
+            border:1px solid #cbd5e1;
+            border-radius:7px;
+            font:inherit;
+        }
+
+        input:focus,
+        textarea:focus{
+            outline:2px solid #38bdf8;
+            border-color:#0284c7;
+        }
+
+        button{
+            border:none;
+            background:#0284c7;
+            color:white;
+            padding:12px 22px;
+            border-radius:7px;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        footer{
+            background:#0f172a;
+            color:#cbd5e1;
+            text-align:center;
+            padding:25px;
+        }
+
+        @media(max-width:800px){
+            .nav-container{
+                flex-direction:column;
+                gap:10px;
+                padding:15px 0;
+            }
+
+            nav{
+                gap:15px;
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+
+            .hero-content,
+            .contact-container{
+                grid-template-columns:1fr;
+                text-align:center;
+            }
+
+            .hero h2{
+                font-size:40px;
+            }
+
+            .profile-card{
+                width:220px;
+                height:220px;
+            }
+
+            .skills-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+            .projects-grid{
+                grid-template-columns:1fr;
+            }
+
+            .contact-form{
+                text-align:left;
+            }
+        }
+
+        @media(max-width:500px){
+            section{
+                padding:65px 0;
+            }
+
+            .skills-grid{
+                grid-template-columns:1fr;
+            }
+
+            .hero h2{
+                font-size:34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+
+            <h1>Adhil Jawad</h1>
+
+            <nav>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- About Section -->
+        <section id="about" class="hero">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <p class="tag">CSE STUDENT • BEGINNER DEVELOPER</p>
+
+                    <h2>
+                        Hello, I'm <span>Adhil</span>.
+                    </h2>
+
+                    <p>
+                        I am a Computer Science and Engineering student interested
+                        in programming, web development, and learning how software
+                        is built. I enjoy solving problems and improving my
+                        technical skills through practical projects.
+                    </p>
+
+                    <a class="button" href="#contact">
+                        Contact Me
+                    </a>
+
+                </div>
+
+
+                <div class="profile-card">
+
+                    <img
+                        src="adhil.png"
+                        alt="Profile photo of Adhil Jawad"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Skills Section -->
+        <section id="skills">
+
+            <div class="container">
+
+                <p class="section-label">WHAT I KNOW</p>
+
+                <h2>My Skills</h2>
+
+
+                <div class="skills-grid">
+
+                    <article class="skill">
+
+                        <h3>C++</h3>
+
+                        <p>
+                            Basic programming, problem solving,
+                            and object-oriented programming.
+                        </p>
+
+                    </article>
+
+
+                    <article class="skill">
+
+                        <h3>HTML5</h3>
+
+                        <p>
+                            Creating structured and semantic
+                            web pages.
+                        </p>
+
+                    </article>
+
+
+                    <article class="skill">
+
+                        <h3>CSS3</h3>
+
+                        <p>
+                            Styling websites with responsive
+                            layouts and modern CSS.
+                        </p>
+
+                    </article>
+
+
+                    <article class="skill">
+
+                        <h3>Git & GitHub</h3>
+
+                        <p>
+                            Managing code and publishing
+                            projects online.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+
+            <div class="container">
+
+                <p class="section-label">MY WORK</p>
+
+                <h2>Projects</h2>
+
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+
+                        <div class="project-number">
+                            01
+                        </div>
+
+                        <h3>Personal Profile Page</h3>
+
+                        <p>
+                            A responsive personal profile website
+                            built with semantic HTML5 and CSS3.
+                            It contains information about me,
+                            my skills, projects, and contact details.
+                        </p>
+
+                        <span>
+                            HTML5 • CSS3
+                        </span>
+
+                    </article>
+
+
+                    <article class="project-card">
+
+                        <div class="project-number">
+                            02
+                        </div>
+
+                        <h3>C++ Problem Solving</h3>
+
+                        <p>
+                            A collection of beginner programming
+                            solutions covering conditions, loops,
+                            arrays, strings, and basic
+                            problem-solving techniques.
+                        </p>
+
+                        <span>
+                            C++ • Algorithms
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact">
+
+            <div class="container contact-container">
+
+                <div class="contact-info">
+
+                    <p class="section-label">
+                        GET IN TOUCH
+                    </p>
+
+                    <h2>Contact Me</h2>
+
+                    <p>
+                        Have a question or want to connect?
+                        Send me a message using the form.
+                    </p>
+
+                    <p class="email">
+                        Email:
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=adiljawadchy@gmail.com" target="_blank">adiljawadchy@gmail.com </a>
+                    </p>
+
+                </div>
+
+
+                <form class="contact-form">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Write your message..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button type="submit">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 Adhil Jawad. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
